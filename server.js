@@ -2,13 +2,18 @@ var express = require('express');
 var path = require('path');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-
 var app = express();
+
+var contact= require('./routes/contact');
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+app.use('/contact', contact);
 
 app.use(express.static(__dirname + '/react-dist'));
 
